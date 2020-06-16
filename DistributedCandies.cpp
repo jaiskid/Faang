@@ -17,15 +17,20 @@ using namespace std;
 #define PNF1(a,n,m) for(int i=1;i<=n;i++){for(int j=1;j<=m;j++){cout<<a[i][j]<<' ';}cout<<endl;}cout<<endl;
 #define AS 200001
 #define mod 1000000007
-bool CircularLoop(vector<int>v){
-	int n=v.size();
-	for(int i=0;i<n;i++){
-		int slow=i,fast=i;
-		if(v[i]==0){
-			continue;
+int distributedCandies(vector<int>&candies) {
+	unordered_map<int, int>m;
+	int count = 0;
+	for (int i = 0; i < candies.size(); i++) {
+		if (m.find(candies[i]) == m.end()) {
+			m.insert({candies[i], 1});
+			count++;
 		}
-		while(v[slow]*v[next()])
+		else {
+			m[candies[i]]++;
+		}
 	}
+	int ans = count < candies.size() / 2 ? count : candies.size() / 2;
+	return ans;
 }
 int main() {
 	fastIO
@@ -35,11 +40,9 @@ int main() {
 #endif
 	int n;
 	cin >> n;
-	vector<int>nums;
-	nums.resize(n);
-	for (int i = 0; i < n; i++) {
-		cin >> nums[i];
-	}
-	cout << CircularLoop(v) << endl;
-	cout << endl;
+	vector<int>candies;
+	candies.resize(n);
+	F(candies, n);
+	cout << distributedCandies(candies);
+
 }

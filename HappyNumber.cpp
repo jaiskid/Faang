@@ -17,15 +17,22 @@ using namespace std;
 #define PNF1(a,n,m) for(int i=1;i<=n;i++){for(int j=1;j<=m;j++){cout<<a[i][j]<<' ';}cout<<endl;}cout<<endl;
 #define AS 200001
 #define mod 1000000007
-bool CircularLoop(vector<int>v){
-	int n=v.size();
-	for(int i=0;i<n;i++){
-		int slow=i,fast=i;
-		if(v[i]==0){
-			continue;
-		}
-		while(v[slow]*v[next()])
+int nextNumber(int n) {
+	int sum = 0;
+	while (n) {
+		sum += pow(n % 10, 2);
+		n /= 10;
 	}
+	return sum;
+}
+bool isHappy(int n) {
+	unordered_set<int> visited;
+	while (n != 1 and !visited.count(n)) {
+		visited.emplace(n);
+		n = nextNumber(n);
+
+	}
+	return n == 1;
 }
 int main() {
 	fastIO
@@ -35,11 +42,5 @@ int main() {
 #endif
 	int n;
 	cin >> n;
-	vector<int>nums;
-	nums.resize(n);
-	for (int i = 0; i < n; i++) {
-		cin >> nums[i];
-	}
-	cout << CircularLoop(v) << endl;
-	cout << endl;
+	cout << isHappy(n);
 }
