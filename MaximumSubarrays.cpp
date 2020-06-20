@@ -17,33 +17,20 @@ using namespace std;
 #define PNF1(a,n,m) for(int i=1;i<=n;i++){for(int j=1;j<=m;j++){cout<<a[i][j]<<' ';}cout<<endl;}cout<<endl;
 #define AS 200001
 #define mod 1000000007
-int firstMissingPositive(vector<int>&nums) {
-	int n = nums.size();
-	for (int i = 0; i < n; i++)
-		if (nums[i] <= 0 || nums[i] > n + 1 )
-			nums[i] = n + 2;
-	for (auto v : nums) {
-		int i = v > 0 ? v - 1 : -v - 1;
-		if (i >= 0 and i < n )
-			nums[i] = -abs(nums[i]);
+int MaximumSubarray(int n){
+	int res=INT_MIN;
+	int curr=INT_MIN;
+	for(int i=0;i<n;i++){
+		
 	}
-	for (int i = 0; i < n; i++)
-		if (nums[i] > 0)
-			return i + 1;
-	return n + 1;
 }
-int main() {
+int main(){
 	fastIO
-#ifndef ONLINE_JUDGE
-	freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);
-#endif
+	#ifndef ONLINE_JUDGE
+	freopen("input.txt","r",stdin);
+	freopen("output.txt","w",stdout);
+	#endif
 	int n;
-	cin >> n;
-	vector<int>nums;
-	nums.resize(n);
-	for (int i = 0; i < n; i++) {
-		cin >> nums[i];
-	}
-	cout << firstMissingPositive(nums);
+	cin>>n;
+	cout<<MaximumSubarray(n);
 }

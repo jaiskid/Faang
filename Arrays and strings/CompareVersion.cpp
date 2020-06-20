@@ -47,11 +47,8 @@ int CompareVersion(string version1, string version2) {
 }
 int main() {
 	fastIO
-#ifndef ONLINE_JUDGE
-	freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);
-#endif
 	string version1;
 	string version2;
 	cin >> version1 >> version2;
-	cout << CompareVersion(string version1, string version2);
+	cout << CompareVersion(version1,version2);
+}
