@@ -1,2 +1,2 @@
 # Faang
-This repository contains coding solutions of faang course 
+This repository contains coding solutions of faang course .
